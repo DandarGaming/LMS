@@ -45,11 +45,17 @@ public class Member {
     }
 
     public int calculateBorrowLimit() {
-        
+        // I'm not 100% sure this works, so if it breaks its because it's referencing
+        // a variable from the child classes, StaffMember and StudentMember. If you
+        // aren't sure then ask me !! - Rori
+        return maxBooks;
     }
 
     @Override
     public String toString() {
-
+        return "Name: " + this.name +
+                "\nMember ID: " + memberID +
+                "\nEmail: " + this.email +
+                "\nBorrowed Books: " + borrowedBooks;
     }
 }
