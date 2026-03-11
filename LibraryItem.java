@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class LibraryItem {
@@ -10,14 +12,25 @@ public class LibraryItem {
 
     public LibraryItem(int itemId, String title, boolean available) {
         // sout inputted id, inputted string, inputed availability
+        this.itemId = itemId;
+        this.title = title;
+        this.available = available;
     }
 
     public int getItemId() {
-        // prompt user to input the Item ID (integer)
-        System.out.prntln("Enter Item ID: ")
+        // tells the user to input the item id as an integer
+        System.out.println("Enter Item ID: ");
+        while (!scanner.hasNextInt()) {  // checks if the input is an integer and if its not
+                                            // will ask the user to input an integer
+            System.out.println("Please enter a valid integer.");
+            scanner.next(); // discard invalid token
+        }
         itemId = scanner.nextInt();
-        System.out.println("You have entered: " + itemId);
-        return itemId;
+        scanner.nextLine();
+        System.out.println("You have entered: " + itemId); // tells the user what they inputted
+                                                            //incase they neeed to double check
+        return itemId; // change this around later needs updating
+                        // doesnt need updating anymore
     }
 
     public void setItemId(int itemId) {
@@ -26,7 +39,7 @@ public class LibraryItem {
     }
 
     public String getTitle() {
-        System.out.println("Enter The Title: ")
+        System.out.println("Enter The Title: ");
         // prompt user to input the title (String)
         title = scanner.nextLine();
         System.out.println("The title is: " + title);
@@ -37,33 +50,98 @@ public class LibraryItem {
         // set title to user input
         this.title = title;
     }
-
-    public boolean isAvailable() {
-        System.out.println("Is the book currently available? (Y/N): ")
         // mi tink me gwaan tek mi own life
-        // ask user to type Y or N to know if the book is currently available
-        // pseudo code of what the code should do:
+
     
-        //if input = Y (either case)
-        //return ("Book is available")
+    public boolean isAvailable() {
+        do { //starts the do whle loop
+        System.out.println("Is the book currently available? (Y/N): ");
+        String input = scanner.nextLine();
 
-        //if input = N (either case)
+        // if input = Y or y (either case)
+        // return ("Book is available")
+        if (input.equalsIgnoreCase("Y")) {
+            System.out.println("Book is available");
+            return true;
+        }
+
+        // if input = N or n (either case)
         //return ("Book is unavailable")
+        else if (input.equalsIgnoreCase("N")) {
+            System.out.println("Book is unavailable");
+            return false;
+        }
 
-        //else
+        // else
         //return ("Please select Y or N")
-        //restart loop until either y or N selected
-    }
+        else {
+            System.out.println("Please select Y or N");
+        }
+
+        // restart loop until either Y or N selected
+    } while (true);
+}
 
     public void setAvailable(boolean available) {
         // if input = Y set book to available
         // if input = N set book to unavailable
+        this.available = available;
     }
 
     @Override
     public String toString() {
+        return """
+               Book Info:
+               Book ID Number: """ + itemId + "\n" +
+               "Title: " + title + "\n" +
+               "Availability: " + available;
+    }
 
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        List<LibraryItem> books = new ArrayList<>();
+        boolean running = true;
+
+        while (running) {
+            // shows user a menu to select the option they wanna do
+            System.out.println("Choose an option:\n1) Add a book\n2) View added books\n3) Exit system");
+            String choice = scanner.nextLine(); // reads your choice
+
+            switch (choice) {
+                case "1":
+                    // create new item and add to list
+                    LibraryItem item = new LibraryItem(0, "", false);
+                    item.setItemId(item.getItemId());
+                    item.setTitle(item.getTitle());
+                    item.setAvailable(item.isAvailable());
+                    books.add(item);
+                    System.out.println("Book added.\n");
+                    break;
+                case "2":
+                    // option 2: list all books that have been added so far
+                    if (books.isEmpty()) {
+                        System.out.println("No books added yet.\n");
+                    } else {
+                        System.out.println("--- Added Books ---");
+                        for (LibraryItem b : books) {
+                            System.out.println(b + "\n");
+                        }
+                    }
+                    break;
+                case "3":
+                    // option 3: stops it from running by closing the loop
+                    running = false;
+                    System.out.println("Exiting system. Goodbye!");
+                    break;
+                default:
+                    // if you put in an invalid option it asks you to retry
+                    System.out.println("Invalid selection, please choose 1, 2, or 3.\n");
+            }
+        }
+        scanner.close(); // close scanner before exiting
     }
 }
 
-what is this diddy blud doing 
+
+// bug check and report any issues once all code is complete to make 
+// sure its cross compatible and works from java main class
