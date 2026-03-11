@@ -16,8 +16,8 @@ public class LibraryItem {
         // prompt user to input the Item ID (integer)
         System.out.prntln("Enter Item ID: ")
         itemId = scanner.nextInt();
-        return itemId;
         System.out.println("You have entered: " + itemId);
+        return itemId;
     }
 
     public void setItemId(int itemId) {
@@ -29,8 +29,8 @@ public class LibraryItem {
         System.out.println("Enter The Title: ")
         // prompt user to input the title (String)
         title = scanner.nextLine();
-        return title;
         System.out.println("The title is: " + title);
+        return title;
     }
 
     public void setTitle(String title) {
@@ -40,7 +40,19 @@ public class LibraryItem {
 
     public boolean isAvailable() {
         System.out.println("Is the book currently available? (Y/N): ")
+        // mi tink me gwaan tek mi own life
         // ask user to type Y or N to know if the book is currently available
+        // pseudo code of what the code should do:
+    
+        //if input = Y (either case)
+        //return ("Book is available")
+
+        //if input = N (either case)
+        //return ("Book is unavailable")
+
+        //else
+        //return ("Please select Y or N")
+        //restart loop until either y or N selected
     }
 
     public void setAvailable(boolean available) {
@@ -53,3 +65,5 @@ public class LibraryItem {
 
     }
 }
+
+what is this diddy blud doing 
