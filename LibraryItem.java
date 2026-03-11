@@ -17,19 +17,25 @@ public class LibraryItem {
         System.out.prntln("Enter Item ID: ")
         itemId = scanner.nextInt();
         return itemId;
+        System.out.println("You have entered: " + itemId);
     }
 
     public void setItemId(int itemId) {
         // set itemId to the user input
+        this.itemId = itemId;
     }
 
     public String getTitle() {
         System.out.println("Enter The Title: ")
         // prompt user to input the title (String)
+        title = scanner.nextLine();
+        return title;
+        System.out.println("The title is: " + title);
     }
 
     public void setTitle(String title) {
         // set title to user input
+        this.title = title;
     }
 
     public boolean isAvailable() {
