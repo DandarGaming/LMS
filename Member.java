@@ -6,43 +6,46 @@ public class Member {
     private int borrowedBooks;
 
     public Member(String name, int memberId, String email, int borrowedBooks) {
-
+        this.name = name;
+        this.memberId = memberId;
+        this.email = email;
+        this.borrowedBooks = borrowedBooks;
     }
 
     public String getName() {
-
+        return this.name;
     }
 
     public void setName(String name) {
-
+        this.name = name;
     }
 
     public int getMemberId() {
-
+        return this.memberId;
     }
 
     public void setMemberId(int memberId) {
-
+        this.memberId = memberId;
     }
 
     public String getEmail() {
-
+        return this.email;
     }
 
     public void setEmail(String email) {
-
+        this.email = email;
     }
 
     public int getBorrowedBooks() {
-
+        return this.borrowedBooks;
     }
 
     public void setBorrowedBooks(int borrowedBooks) {
-
+        this.borrowedBooks = borrowedBooks
     }
 
     public int calculateBorrowLimit() {
-
+        
     }
 
     @Override
