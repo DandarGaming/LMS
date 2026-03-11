@@ -1,18 +1,22 @@
-public class LibraryItem {
-
 import java.util.Scanner;
+
+public class LibraryItem {
     
     private int itemId;
     private String title;
     private boolean available;
+
+    Scanner scanner = new Scanner(System.in);
 
     public LibraryItem(int itemId, String title, boolean available) {
         // sout inputted id, inputted string, inputed availability
     }
 
     public int getItemId() {
-        System.out.prntln("Enter Item ID: ")
         // prompt user to input the Item ID (integer)
+        System.out.prntln("Enter Item ID: ")
+        itemId = scanner.nextInt();
+        return itemId;
     }
 
     public void setItemId(int itemId) {
