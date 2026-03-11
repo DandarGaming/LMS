@@ -12,6 +12,7 @@ import java.util.Scanner;
 
     public int getItemId() {
         System.out.prntln("Enter Item ID: ")
+        // prompt user to input the Item ID (integer)
     }
 
     public void setItemId(int itemId) {
@@ -20,6 +21,7 @@ import java.util.Scanner;
 
     public String getTitle() {
         System.out.println("Enter The Title: ")
+        // prompt user to input the title (String)
     }
 
     public void setTitle(String title) {
@@ -28,6 +30,7 @@ import java.util.Scanner;
 
     public boolean isAvailable() {
         System.out.println("Is the book currently available? (Y/N): ")
+        // ask user to type Y or N to know if the book is currently available
     }
 
     public void setAvailable(boolean available) {
