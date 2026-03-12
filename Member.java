@@ -41,7 +41,7 @@ public class Member {
     }
 
     public void setBorrowedBooks(int borrowedBooks) {
-        this.borrowedBooks = borrowedBooks
+        this.borrowedBooks = borrowedBooks;
     }
 
     public int calculateBorrowLimit() {
@@ -54,7 +54,7 @@ public class Member {
     @Override
     public String toString() {
         return "Name: " + this.name +
-                "\nMember ID: " + memberID +
+                "\nMember ID: " + memberId +
                 "\nEmail: " + this.email +
                 "\nBorrowed Books: " + borrowedBooks;
     }
