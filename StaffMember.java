@@ -12,7 +12,7 @@ public class StaffMember extends Member {
 
     @Override
     public String toString() {
-    return super.toString() + "Max Books" + maxBooks;
+    return super.toString() + "Max Books: " + maxBooks;
 
     }
 }
