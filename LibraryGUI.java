@@ -26,189 +26,205 @@ public class LibraryGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jPanel1 = new javax.swing.JPanel();
-        MainMenu = new javax.swing.JFrame();
-        jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        AddMember = new javax.swing.JPanel();
-        MemberType = new javax.swing.JComboBox<>();
-        AddMemberBtn = new javax.swing.JButton();
-        ExitMemberBtn = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        MemberMenu = new javax.swing.JFrame();
         jLabel3 = new javax.swing.JLabel();
-        Email = new javax.swing.JScrollPane();
-        MemberID = new javax.swing.JTextPane();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        Name = new javax.swing.JTextPane();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        MemberIDtxt = new javax.swing.JTextPane();
+        AddNewMemberBtn = new javax.swing.JToggleButton();
+        ViewMemberBtn = new javax.swing.JToggleButton();
+        EditMemberBtn = new javax.swing.JButton();
+        DeleteMemberBtn = new javax.swing.JToggleButton();
+        ExitMemberMenuBtn = new javax.swing.JButton();
+        BookMenu = new javax.swing.JFrame();
+        jLabel4 = new javax.swing.JLabel();
+        AddNewBookBtn = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        ExitBookMenuBtn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        BookBtn = new javax.swing.JToggleButton();
+        MemberBtn = new javax.swing.JToggleButton();
+        jLabel2 = new javax.swing.JLabel();
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel3.setText("Member Menu");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        AddNewMemberBtn.setText("Add New Member");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel4.setText("Libary Management System");
+        ViewMemberBtn.setText("View Member");
 
-        jButton1.setText("Add New Book");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        EditMemberBtn.setText("Edit Member");
+
+        DeleteMemberBtn.setText("Delete Member");
+        DeleteMemberBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                DeleteMemberBtnActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout MainMenuLayout = new javax.swing.GroupLayout(MainMenu.getContentPane());
-        MainMenu.getContentPane().setLayout(MainMenuLayout);
-        MainMenuLayout.setHorizontalGroup(
-            MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MainMenuLayout.createSequentialGroup()
-                .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MainMenuLayout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addComponent(jLabel4))
-                    .addGroup(MainMenuLayout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addComponent(jButton1)))
-                .addContainerGap(80, Short.MAX_VALUE))
+        ExitMemberMenuBtn.setText("Exit to Main Menu");
+        ExitMemberMenuBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExitMemberMenuBtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout MemberMenuLayout = new javax.swing.GroupLayout(MemberMenu.getContentPane());
+        MemberMenu.getContentPane().setLayout(MemberMenuLayout);
+        MemberMenuLayout.setHorizontalGroup(
+            MemberMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MemberMenuLayout.createSequentialGroup()
+                .addGap(77, 77, 77)
+                .addComponent(jLabel3)
+                .addContainerGap(87, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MemberMenuLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(MemberMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MemberMenuLayout.createSequentialGroup()
+                        .addComponent(ExitMemberMenuBtn)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MemberMenuLayout.createSequentialGroup()
+                        .addGroup(MemberMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(ViewMemberBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AddNewMemberBtn)
+                            .addComponent(EditMemberBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DeleteMemberBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(132, 132, 132))))
         );
-        MainMenuLayout.setVerticalGroup(
-            MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MainMenuLayout.createSequentialGroup()
+        MemberMenuLayout.setVerticalGroup(
+            MemberMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MemberMenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addGap(27, 27, 27)
+                .addComponent(AddNewMemberBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ViewMemberBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(EditMemberBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(DeleteMemberBtn)
+                .addGap(36, 36, 36)
+                .addComponent(ExitMemberMenuBtn)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel4.setText("Book Menu");
+
+        AddNewBookBtn.setText("Add New Book");
+
+        jButton2.setText("Edit Book");
+
+        jButton3.setText("Delete Book");
+
+        ExitBookMenuBtn.setText("Exit to Main Menu");
+
+        javax.swing.GroupLayout BookMenuLayout = new javax.swing.GroupLayout(BookMenu.getContentPane());
+        BookMenu.getContentPane().setLayout(BookMenuLayout);
+        BookMenuLayout.setHorizontalGroup(
+            BookMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BookMenuLayout.createSequentialGroup()
+                .addContainerGap(118, Short.MAX_VALUE)
+                .addGroup(BookMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BookMenuLayout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(100, 100, 100))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BookMenuLayout.createSequentialGroup()
+                        .addGroup(BookMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AddNewBookBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(141, 141, 141))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BookMenuLayout.createSequentialGroup()
+                        .addComponent(ExitBookMenuBtn)
+                        .addContainerGap())))
+        );
+        BookMenuLayout.setVerticalGroup(
+            BookMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BookMenuLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
-                .addGap(99, 99, 99)
-                .addComponent(jButton1)
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(AddNewBookBtn)
+                .addGap(12, 12, 12)
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                .addComponent(ExitBookMenuBtn)
+                .addGap(14, 14, 14))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        MemberType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Member Type", "StudentMember", "StaffMember" }));
-        MemberType.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setText("Library Management System");
+
+        BookBtn.setText("Book");
+        BookBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MemberTypeActionPerformed(evt);
+                BookBtnActionPerformed(evt);
             }
         });
 
-        AddMemberBtn.setText("Add Member");
-
-        ExitMemberBtn.setText("Exit to Main Menu");
-
-        jLabel1.setText("Name:");
-
-        jLabel2.setText("Member ID:");
-
-        jLabel3.setText("Email:");
-
-        Email.setViewportView(MemberID);
-
-        jScrollPane3.setViewportView(Name);
-
-        jScrollPane4.setViewportView(MemberIDtxt);
-
-        javax.swing.GroupLayout AddMemberLayout = new javax.swing.GroupLayout(AddMember);
-        AddMember.setLayout(AddMemberLayout);
-        AddMemberLayout.setHorizontalGroup(
-            AddMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddMemberLayout.createSequentialGroup()
-                .addGroup(AddMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(AddMemberLayout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(jLabel1)
-                        .addGap(42, 42, 42)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(AddMemberLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(AddMemberBtn)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ExitMemberBtn)
-                .addGap(18, 18, 18))
-            .addGroup(AddMemberLayout.createSequentialGroup()
-                .addGroup(AddMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(AddMemberLayout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addGroup(AddMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addGap(16, 16, 16)
-                        .addGroup(AddMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(AddMemberLayout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addComponent(MemberType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        AddMemberLayout.setVerticalGroup(
-            AddMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AddMemberLayout.createSequentialGroup()
-                .addGroup(AddMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(AddMemberLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jLabel1)
-                        .addGap(24, 24, 24))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddMemberLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
-                .addGroup(AddMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(AddMemberLayout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(jLabel2))
-                    .addGroup(AddMemberLayout.createSequentialGroup()
-                        .addComponent(MemberType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(23, 23, 23)
-                .addGroup(AddMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(AddMemberLayout.createSequentialGroup()
-                        .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                        .addGroup(AddMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(AddMemberBtn)
-                            .addComponent(ExitMemberBtn))
-                        .addGap(21, 21, 21))
-                    .addGroup(AddMemberLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
+        MemberBtn.setText("Member");
+        MemberBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MemberBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(AddMember, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(87, 87, 87)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(MemberBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))))
+                .addContainerGap(87, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(BookBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(AddMember, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BookBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MemberBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(90, 90, 90))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void MemberTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MemberTypeActionPerformed
+    private void BookBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BookBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_MemberTypeActionPerformed
+    }//GEN-LAST:event_BookBtnActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void MemberBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MemberBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_MemberBtnActionPerformed
+
+    private void DeleteMemberBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteMemberBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DeleteMemberBtnActionPerformed
+
+    private void ExitMemberMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitMemberMenuBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ExitMemberMenuBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -246,24 +262,22 @@ public class LibraryGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel AddMember;
-    private javax.swing.JButton AddMemberBtn;
-    private javax.swing.JScrollPane Email;
-    private javax.swing.JButton ExitMemberBtn;
-    private javax.swing.JFrame MainMenu;
-    private javax.swing.JTextPane MemberID;
-    private javax.swing.JTextPane MemberIDtxt;
-    private javax.swing.JComboBox<String> MemberType;
-    private javax.swing.JTextPane Name;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton AddNewBookBtn;
+    private javax.swing.JToggleButton AddNewMemberBtn;
+    private javax.swing.JToggleButton BookBtn;
+    private javax.swing.JFrame BookMenu;
+    private javax.swing.JToggleButton DeleteMemberBtn;
+    private javax.swing.JButton EditMemberBtn;
+    private javax.swing.JButton ExitBookMenuBtn;
+    private javax.swing.JButton ExitMemberMenuBtn;
+    private javax.swing.JToggleButton MemberBtn;
+    private javax.swing.JFrame MemberMenu;
+    private javax.swing.JToggleButton ViewMemberBtn;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
