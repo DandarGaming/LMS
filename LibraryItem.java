@@ -18,31 +18,14 @@ public class LibraryItem {
     }
 
     public int getItemId() {
-        // tells the user to input the item id as an integer
-        System.out.println("Enter Item ID: ");
-        while (!scanner.hasNextInt()) {  // checks if the input is an integer and if its not
-                                            // will ask the user to input an integer
-            System.out.println("Please enter a valid integer.");
-            scanner.next(); // discard invalid token
+        return itemId;
         }
-        itemId = scanner.nextInt();
-        scanner.nextLine();
-        System.out.println("You have entered: " + itemId); // tells the user what they inputted
-                                                            //incase they neeed to double check
-        return itemId; // change this around later needs updating
-                        // doesnt need updating anymore
-    }
-
     public void setItemId(int itemId) {
         // set itemId to the user input
         this.itemId = itemId;
     }
 
     public String getTitle() {
-        System.out.println("Enter The Title: ");
-        // prompt user to input the title (String)
-        title = scanner.nextLine();
-        System.out.println("The title is: " + title);
         return title;
     }
 
@@ -54,22 +37,7 @@ public class LibraryItem {
 
     
     public boolean isAvailable() {
-        do { //starts the do whle loop
-        System.out.println("Is the book currently available? (Y/N): ");
-        String input = scanner.nextLine();
-
-        // if input = Y or y (either case)
-        // return ("Book is available")
-        if (input.equalsIgnoreCase("Y")) {
-            System.out.println("Book is available");
-            return true;
-        }
-
-        // if input = N or n (either case)
-        //return ("Book is unavailable")
-        else if (input.equalsIgnoreCase("N")) {
-            System.out.println("Book is unavailable");
-            return false;
+       return available;
         }
 
         // else
