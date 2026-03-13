@@ -18,32 +18,29 @@ public class Loan {
 
 
     public Loan(Member member, Book book) {
-    this.member = member;
-    this.book = book;
+
     }
 
-    // public Member getMember() {
-
-    // }
+    public Member getMember() {
+        
+    }
 
     public void setMember() {
-        System.out.println("Enter the name of the new member: ");
+        System.out.println("Enter the name of the new member");
         memberName = scanner.nextLine();
-        System.out.println("Enter the ID for this new member: ");
-        memberId = scanner.nextInt();
-        scanner.nextLine();
-        System.out.println("Enter the new members email: ");
-        memberEmail = scanner.nextLine();
-        Member newmember = new Member(memberName, memberId, memberEmail, 0); 
+        System.out.println("");
+
     }
 
-    public Book getBook() {
+    public static String getBook() {
+        System.out.println("Enter the title of the book you wish to view: ");
         String title = scanner.nextLine();
-        book = Book.GetBook(title);
-        return book;
+        String bookInfo = Book.GetBook(title);
+        return bookInfo;
+        
     }
 
-    public void setBook() {
+    static public void setBook() {
         System.out.println("Enter the title of the book: ");
         bookTitle = scanner.nextLine();
         System.out.println("Enter the name of the author: ");
@@ -54,9 +51,7 @@ public class Loan {
     }
 
     public String getLoanDetails() {
-        System.out.println("Enter the name of the person who you wish to check the loan details of");
-        memberName = scanner.nextLine();
-        return member.getBorrowedBooks();
+        return Member.getBorrowedBooks();
     }
 
     // @Override
