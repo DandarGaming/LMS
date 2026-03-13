@@ -49,7 +49,12 @@ public class Book extends LibraryItem {
         System.out.println("Your item has been successfully added: " + books.get(title));
     }
 
-    public static HashMap<String, Book> GetBooks() {
+    public static HashMap<String, Book> GetAllBooks() {
         return books;
+    }
+
+    public static Book GetBook(String title) {
+        Book book = books.get(title);
+        return book;
     }
 }
