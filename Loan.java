@@ -1,3 +1,5 @@
+package com.example;
+
 import java.util.Scanner;
 import java.util.HashMap;
 
@@ -58,16 +60,6 @@ public class Loan {
         System.out.println("You have successfully added the member " + members.get(memberName));
     }
 
-    public static String getBook(String title) {
-        if (Book.GetAllBooks() == null) {
-            return "Sorry but no books are in the system";
-        }
-        else {
-            String bookInfo = Book.GetBook(title);
-            return bookInfo;
-        }
-    }
-
     public void setBook() {
         System.out.println("Enter the title of the book: ");
         bookTitle = scanner.nextLine();
@@ -77,6 +69,39 @@ public class Loan {
         bookIsbn = scanner.nextLine();
         totalBooks++;
         Book.AddBook(totalBooks, bookTitle, true, bookAuthor, bookIsbn);
+    }
+
+    public static void Borrow() {
+        System.out.println("Enter the name of the member: ");
+        memberName = scanner.nextLine();
+        Member member = members.get(memberName); 
+        if (member == null) {
+            System.out.println("That is not a member in our system");
+        }
+        else {
+            if (member.borrowedBooks < member.maxBooks) {
+                System.out.println("Enter the name of the book the member wishes to borrow: ");
+                bookTitle = scanner.nextLine();
+                Book book = Book.GetAllBooks().get(bookTitle);
+                if (book == null){
+                    System.out.println("Sorry but we dont have that book in our system");
+                }
+                else {
+                    if (LibraryItem.isAvailable(); == true) {
+                        LibraryItem.setAvailable(false);
+                        member.borrowedBooks++;
+                        System.out.println(member.getName() + " has borrowed " + book.getTitle() + " and now has " + member.getBorrowedBooks() + " borrowed books");
+                    }
+                    else {
+                        System.out.println("That item is not available");
+                    }
+                    
+                }
+            }
+            else {
+                System.out.println("That member has borrowed the maximum books and can no longer borrow a book until they return 1");
+            }
+        }
     }
 
     // public String getLoanDetails() {
