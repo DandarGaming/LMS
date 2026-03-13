@@ -1,6 +1,6 @@
 public class StudentMember extends Member {
 
-    private final int maxBooks = 5;
+    private final int maxBooks = 5; ///sets maxBooks as 5 within the StudentMember Class
 
     public StudentMember(String name, int memberId, String email, int borrowedBooks) {
         super(name, memberId, email, borrowedBooks);
@@ -8,7 +8,7 @@ public class StudentMember extends Member {
     }
     
     public int getMaxBooks() {
-    return maxBooks;
+    return maxBooks; // returns student's maxBooks (5)
     }
     
     @Override
@@ -18,6 +18,6 @@ public class StudentMember extends Member {
     
     @Override
     public String toString() {
-    return super.toString() + " Max Books: " + maxBooks;
+    return super.toString() + " Max Books: " + maxBooks; 
     }
 }
