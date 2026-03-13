@@ -10,6 +10,11 @@ public class StaffMember extends Member {
     return maxBooks; // returns 10 as its strored in line 3 
     }
 
+    @Override
+    public int calculateBorrowLimit() {
+        return maxBooks; // Overrides the default output with maxBooks of StaffMember
+    }
+    
     @Override //overloads 
     public String toString() {
     return super.toString() + "Max Books: " + maxBooks;
