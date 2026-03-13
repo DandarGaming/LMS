@@ -6,6 +6,7 @@ public class Book extends LibraryItem {
     private String isbn;
 
     private static HashMap<String, Book> books = new HashMap<>();
+    
 
     public Book(int itemId, String title, boolean available, String author, String isbn) {
         super(itemId, title, available);
@@ -14,15 +15,17 @@ public class Book extends LibraryItem {
         System.out.println("Book title: " + title + " Author: " + author + " Availability: " + available + " Isbn: " + isbn + " Item ID: " + itemId);
     }
 
-    public String getAuthor(String title) {
-        return author;
+    public static String getAuthor(String title) {
+        Book book = books.get(title);
+        return book.author;
     }
 
     public void setAuthor(String author, String title) {
-        this.author = author;
+        Book book = books.get(title);
+        book.author = author;
     }
 
-    public String getIsbn(String title) {
+    public static String getIsbn(String title) {
         Book book = books.get(title);
         return book.isbn;
     }
@@ -51,8 +54,9 @@ public class Book extends LibraryItem {
         return books;
     }
 
-    public static Book GetBook(String title) {
+    public static String GetBook(String title) {
         Book book = books.get(title);
-        return book;
+        String bookInfo = book.toString();
+        return bookInfo;
     }
 }
