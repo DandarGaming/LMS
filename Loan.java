@@ -18,7 +18,8 @@ public class Loan {
 
 
     public Loan(Member member, Book book) {
-
+    this.member = member;
+    this.book = book;
     }
 
     // public Member getMember() {
