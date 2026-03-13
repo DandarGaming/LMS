@@ -45,10 +45,7 @@ public class Member {
     }
 
     public int calculateBorrowLimit() {
-        // I'm not 100% sure this works, so if it breaks its because it's referencing
-        // a variable from the child classes, StaffMember and StudentMember. If you
-        // aren't sure then ask me !! - Rori
-        return maxBooks;
+        return 0; // default output, will be overrided by StaffMember and StudentMember classes
     }
 
     @Override
