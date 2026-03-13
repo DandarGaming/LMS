@@ -10,7 +10,12 @@ public class StudentMember extends Member {
     public int getMaxBooks() {
     return maxBooks;
     }
-
+    
+    @Override
+     public int calculateBorrowLimit() {
+        return maxBooks; // Overrides the default output with maxBooks of StudentMember
+    }
+    
     @Override
     public String toString() {
     return super.toString() + "Max Books: " + maxBooks;
