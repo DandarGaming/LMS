@@ -56,7 +56,7 @@ public class Loan {
     public String getLoanDetails() {
         System.out.println("Enter the name of the person who you wish to check the loan details of");
         memberName = scanner.nextLine();
-        return Member.getBorrowedBooks();
+        return member.getBorrowedBooks();
     }
 
     // @Override
