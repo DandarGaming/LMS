@@ -15,13 +15,11 @@ public class Book extends LibraryItem {
     }
 
     public String getAuthor(String title) {
-        Book book = books.get(title);
-        return book.author;
+        return author;
     }
 
     public void setAuthor(String author, String title) {
-        Book book = books.get(title);
-        book.author = author;
+        this.author = author;
     }
 
     public String getIsbn(String title) {
