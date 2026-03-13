@@ -1,13 +1,13 @@
 public class StaffMember extends Member {
 
-    private final int maxBooks = 10;
+    private final int maxBooks = 10;// maxBooks set as 10
 
     public StaffMember(String name, int memberId, String email, int borrowedBooks) {
         super(name, memberId, email, borrowedBooks);
     }
 
     public int getMaxBooks() {
-    return maxBooks; // returns 10 as its strored in line 3 
+    return maxBooks; // returns maxBooks for StaffMember Class(10)
     }
 
     @Override
