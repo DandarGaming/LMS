@@ -5,7 +5,7 @@ public class Book extends LibraryItem {
     private String author;
     private String isbn;
 
-    private static HashMap<String, Book> books = new HashMap<>();
+    private static final HashMap<String, Book> books = new HashMap<>();
     
 
     public Book(int itemId, String title, boolean available, String author, String isbn) {
