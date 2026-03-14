@@ -48,6 +48,10 @@ public class Member {
         return 0; // default output, will be overrided by StaffMember and StudentMember classes
     }
 
+    public int getMaxBooks() {
+        return 0; // default output, will be overrided by StaffMember and StudentMember classes
+    }
+
     @Override
     public String toString() {
         return "Name: " + this.name +
