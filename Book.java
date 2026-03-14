@@ -15,32 +15,53 @@ public class Book extends LibraryItem {
         System.out.println("Book title: " + title + " Author: " + author + " Availability: " + available + " Isbn: " + isbn + " Item ID: " + itemId);
     }
 
-    public static String getAuthor(String title) {
-        Book book = books.get(title);
-        return book.author;
+    public String getAuthor() {
+        if (books.isEmpty()) {
+            return "Sorry but no books are in the system";
+        }
+        else {
+            return this.author;
+        }
     }
 
-    public void setAuthor(String author, String title) {
-        Book book = books.get(title);
-        book.author = author;
+    public void setAuthor() {
+        if (books.isEmpty()) {
+            System.out.println("Sorry but no books are in the system");
+        }
+        else {
+            System.out.println("Enter the name of the author for this book");
+            String newAuthor = scanner.nextLine();
+            this.author = newAuthor;
+        }
     }
 
-    public static String getIsbn(String title) {
-        Book book = books.get(title);
-        return book.isbn;
+    public String getIsbn() {
+        if (books.isEmpty()) {
+            return "Sorry but no books are in the system";
+        }
+        else {
+            return this.isbn;
+        }
     }
 
-    public void setIsbn(String isbn, String title) {
-        Book book = books.get(title);
-        book.isbn = isbn;
+    public void setIsbn() {
+        if (books.isEmpty()) {
+            System.out.println("Sorry but no books are in the system");
+        }
+        else {
+            System.out.println("Enter the Isbn for this book");
+            String newIsbn = scanner.nextLine();
+            this.isbn = newIsbn;
+        }
+       
     }
 
     
     @Override
     public String toString() {
         return  " [ Title = " + getTitle() + "\n" +
-                "Author = " + author + "\n" +
-                "Isbn = " + isbn + "\n" +
+                "Author = " + this.author + "\n" +
+                "Isbn = " + this.isbn + "\n" +
                 "Available = " + isAvailable() + " ]\n";
     }
 
@@ -51,12 +72,26 @@ public class Book extends LibraryItem {
     }
 
     public static HashMap<String, Book> GetAllBooks() {
-        return books;
+        if (books == null) {
+            System.out.println("Sorry but no books are in the system");
+            return books;
+        }
+        else {
+            return books;
+        }
+        
     }
 
-    public static String GetBook(String title) {
+    public static String GetBookString(String title) {
         Book book = books.get(title);
-        String bookInfo = book.toString();
-        return bookInfo;
+        return book.toString();
+    }
+
+    public static Book GetBook(String title) {
+        Book book = books.get(title);
+        if (book == null) {
+            System.out.println("We dont have that book in out system");
+        }
+        return book;
     }
 }
