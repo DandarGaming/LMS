@@ -6,7 +6,8 @@ public class StudentMember extends Member {
         super(name, memberId, email, borrowedBooks);
 
     }
-    
+
+    @Override
     public int getMaxBooks() {
     return maxBooks; // returns student's maxBooks (5)
     }
