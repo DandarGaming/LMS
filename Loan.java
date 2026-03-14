@@ -1,5 +1,3 @@
-package com.example;
-
 import java.util.Scanner;
 import java.util.HashMap;
 
@@ -31,7 +29,7 @@ public class Loan {
         return this.member;
     }
 
-    public void setMember() {
+    public static void setMember() {
         System.out.println("Enter the number of the member option you wish to add"
             + "\n1. Staff Member"
             + "\n2. Student Member"
@@ -48,19 +46,25 @@ public class Loan {
         switch(userIntInput) {
             case 1:
                 //Staff Member
-                StaffMember newStaffMember = new StaffMember(memberName, memberId, memberEmail, memberId);
+                StaffMember newStaffMember = new StaffMember(memberName, memberId, memberEmail, 0);
                 members.put(memberName, newStaffMember);
                 break;
             case 2:
                 //Student Member
-                StudentMember newStudentMember = new StudentMember(memberName, memberId, memberEmail, memberId);
+                StudentMember newStudentMember = new StudentMember(memberName, memberId, memberEmail, 0);
                 members.put(memberName, newStudentMember);
                 break;   
         }
         System.out.println("You have successfully added the member " + members.get(memberName));
     }
 
-    public void setBook() {
+    public static Book getBook() {
+        System.out.println("Enter the name of the bookyou want to get: ");
+        bookTitle = scanner.nextLine();
+        return Book.GetBook(bookTitle);
+    }
+
+    public static void setBook() {
         System.out.println("Enter the title of the book: ");
         bookTitle = scanner.nextLine();
         System.out.println("Enter the name of the author: ");
@@ -79,7 +83,7 @@ public class Loan {
             System.out.println("That is not a member in our system");
         }
         else {
-            if (member.borrowedBooks < member.maxBooks) {
+            if (member.getBorrowedBooks() < member.getMaxBooks()) {
                 System.out.println("Enter the name of the book the member wishes to borrow: ");
                 bookTitle = scanner.nextLine();
                 Book book = Book.GetAllBooks().get(bookTitle);
@@ -87,9 +91,9 @@ public class Loan {
                     System.out.println("Sorry but we dont have that book in our system");
                 }
                 else {
-                    if (LibraryItem.isAvailable(); == true) {
-                        LibraryItem.setAvailable(false);
-                        member.borrowedBooks++;
+                    if (book.isAvailable() == true) {
+                        book.setAvailable(false);
+                        member.setBorrowedBooks(member.getBorrowedBooks() + 1);
                         System.out.println(member.getName() + " has borrowed " + book.getTitle() + " and now has " + member.getBorrowedBooks() + " borrowed books");
                     }
                     else {
@@ -104,14 +108,43 @@ public class Loan {
         }
     }
 
+    public static void Return() {
+        System.out.println("Enter the name of the member: ");
+        memberName = scanner.nextLine();
+        Member member = members.get(memberName); 
+        if (member == null) {
+            System.out.println("That is not a member in our system");
+        }
+        else {
+            if (member.getBorrowedBooks() == 0) {
+                System.out.println("That member has not borrowed any books");
+            }
+            else {
+                System.out.println("That member has borrowed " + member.getBorrowedBooks() + " books");
+                System.out.println("Enter the name of the book the member wishes to return: ");
+                bookTitle = scanner.nextLine();
+                Book book = Book.GetAllBooks().get(bookTitle);
+                if (book.isAvailable() == true){
+                    System.out.println("Sorry but that book has not been borrowed");
+                }
+                else {
+                    book.setAvailable(true);
+                    member.setBorrowedBooks(member.getBorrowedBooks() - 1);
+                    System.out.println(member.getName() + " has returnec " + book.getTitle() + " and now has " + member.getBorrowedBooks() + " borrowed books");                    
+                }
+            }
+        }
+    }
+
     // public String getLoanDetails() {
     //     System.out.println("Enter the name of the person who you wish to check the loan details of");
     //     memberName = scanner.nextLine();
     //     return Member.getBorrowedBooks();
     // }
 
-    // @Override
-    // public String toString() {
-    // Does this file need a toString??? It stores no constant information on anything
-    // }
+    @Override
+    public String toString() {
+        return "Member: " + member.getName() 
+            + "\nBook: " + book.getTitle();
+    }
 }
