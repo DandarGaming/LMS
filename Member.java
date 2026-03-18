@@ -55,8 +55,8 @@ public class Member {
     @Override
     public String toString() {
         return "Name: " + this.name +
-                "\nMember ID: " + memberId +
+                "\nMember ID: " + this.memberId +
                 "\nEmail: " + this.email +
-                "\nBorrowed Books: " + borrowedBooks;
+                "\nBorrowed Books: " + this.borrowedBooks;
     }
 }
