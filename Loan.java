@@ -1,10 +1,12 @@
+package com.example;
+
 import java.util.Scanner;
 import java.util.HashMap;
 
 public class Loan {
 
     private Member member;
-    private Book book;
+    private Book[] books = new Book[10];
     
     static Scanner scanner = new Scanner(System.in);
     static int userIntInput;
@@ -18,11 +20,17 @@ public class Loan {
     static String memberEmail;
 
     private static final HashMap<String, Member> members = new HashMap<>();
+    private static final HashMap<String, Loan> loans = new HashMap<>();
 
 
     public Loan(Member member, Book book) {
         this.member = member;
-        this.book = book;
+        for (int i = 0; i < books.length; i++) {
+            if (books[i] == null) {
+                books[i] = book;
+                break;
+            }
+        }
     }
 
     public Member getMember() {
@@ -36,7 +44,7 @@ public class Loan {
         );
         userIntInput = scanner.nextInt();
         scanner.nextLine();
-        System.out.println("Enter the name of the new member: ");
+        System.out.println("Enter the name of the -new member: ");
         memberName = scanner.nextLine();
         System.out.println("Enter the ID for this new member: ");
         memberId = scanner.nextInt();
@@ -94,6 +102,14 @@ public class Loan {
                     if (book.isAvailable() == true) {
                         book.setAvailable(false);
                         member.setBorrowedBooks(member.getBorrowedBooks() + 1);
+                        Loan loan = loans.get(memberName);
+                        if (loan == null) {
+                            Loan newLoan = new Loan(member, book);
+                            loans.put(memberName, newLoan);
+                        }
+                        else {
+                            
+                        }
                         System.out.println(member.getName() + " has borrowed " + book.getTitle() + " and now has " + member.getBorrowedBooks() + " borrowed books");
                     }
                     else {
