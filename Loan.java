@@ -159,7 +159,7 @@ public class Loan {
                         }
                     } 
                     member.setBorrowedBooks(member.getBorrowedBooks() - 1);
-                    System.out.println(member.getName() + " has returnec " + book.getTitle() + " and now has " + member.getBorrowedBooks() + " borrowed books");                    
+                    System.out.println(member.getName() + " has returned " + book.getTitle() + " and now has " + member.getBorrowedBooks() + " borrowed books");                    
                 }
             }
         }
