@@ -43,7 +43,7 @@ public class LibrarySystem {
                     Loan.Return();
                     break;
                 case 6: 
-                    Member.getMember(); //temp, change to add member.
+                    Loan.setMember();
                     break;
                 case 7: 
                     //A function to view all members here
