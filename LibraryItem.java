@@ -33,7 +33,6 @@ public class LibraryItem {
         // set title to user input
         this.title = title;
     }
-        // mi tink me gwaan tek mi own life
 
     
     public boolean isAvailable() {
