@@ -1,5 +1,6 @@
 package com.example;
 
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.HashMap;
 
@@ -107,8 +108,13 @@ public class Loan {
                             Loan newLoan = new Loan(member, book);
                             loans.put(memberName, newLoan);
                         }
-                        else {
-                            
+                        else {         
+                            for (int i = 0;  i < loan.books.length; i++) {
+                                if (loan.books[i] == null) {
+                                    loan.books[i] = book;
+                                    break;
+                                }
+                            } 
                         }
                         System.out.println(member.getName() + " has borrowed " + book.getTitle() + " and now has " + member.getBorrowedBooks() + " borrowed books");
                     }
@@ -145,6 +151,13 @@ public class Loan {
                 }
                 else {
                     book.setAvailable(true);
+                    Loan loan = loans.get(memberName);
+                    for (int i = 0;  i < loan.books.length; i++) {
+                        if (loan.books[i] == book) {
+                            loan.books[i] = null;
+                            break;
+                        }
+                    } 
                     member.setBorrowedBooks(member.getBorrowedBooks() - 1);
                     System.out.println(member.getName() + " has returnec " + book.getTitle() + " and now has " + member.getBorrowedBooks() + " borrowed books");                    
                 }
@@ -152,15 +165,16 @@ public class Loan {
         }
     }
 
-    // public String getLoanDetails() {
-    //     System.out.println("Enter the name of the person who you wish to check the loan details of");
-    //     memberName = scanner.nextLine();
-    //     return Member.getBorrowedBooks();
-    // }
+    public String getLoanDetails() {
+        System.out.println("Enter the name of the person who you wish to check the loan details of");
+        memberName = scanner.nextLine();
+        Loan loan = loans.get(memberName);
+        return Arrays.toString(loan.books);
+    }
 
     @Override
     public String toString() {
         return "Member: " + member.getName() 
-            + "\nBook: " + book.getTitle();
+            + "\nBook: " + Arrays.toString(this.books);
     }
 }
