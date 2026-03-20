@@ -1,5 +1,3 @@
-package com.example;
-
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.HashMap;
@@ -120,12 +118,14 @@ public class Loan {
                     }
                     else {
                         System.out.println("That item is not available");
+                        throw new IllegalStateException("Book is not available.");
                     }
                     
                 }
             }
             else {
                 System.out.println("That member has borrowed the maximum books and can no longer borrow a book until they return 1");
+                throw new IllegalStateException("Borrow limit reached."); 
             }
         }
     }
