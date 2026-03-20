@@ -1,47 +1,63 @@
+package com.example;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class Member {
 
-    private String name;
-    private int memberId;
-    private String email;
-    private int borrowedBooks;
+    static String name;
+    static int memberId;
+    static String email;
+    static int borrowedBooks;
+    
+    static Scanner scanner = new Scanner(System.in);
 
     public Member(String name, int memberId, String email, int borrowedBooks) {
-        this.name = name;
-        this.memberId = memberId;
-        this.email = email;
-        this.borrowedBooks = borrowedBooks;
+        Member.name = name;
+        Member.memberId = memberId;
+        Member.email = email;
+        Member.borrowedBooks = borrowedBooks;
     }
-
+    
+    public static void getMember() {
+        System.out.println("Enter the Members Name: \n");
+        name = scanner.nextLine();
+        System.out.println("Enter the Members ID: \n");
+        memberId = scanner.nextInt();
+        System.out.println("Enter the Members Email: \n");
+        email = scanner.nextLine();
+    }
+            
     public String getName() {
-        return this.name;
+        return Member.name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        Member.name = name;
     }
 
     public int getMemberId() {
-        return this.memberId;
+        return Member.memberId;
     }
 
     public void setMemberId(int memberId) {
-        this.memberId = memberId;
+        Member.memberId = memberId;
     }
 
     public String getEmail() {
-        return this.email;
+        return Member.email;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        Member.email = email;
     }
 
     public int getBorrowedBooks() {
-        return this.borrowedBooks;
+        return Member.borrowedBooks;
     }
 
     public void setBorrowedBooks(int borrowedBooks) {
-        this.borrowedBooks = borrowedBooks;
+        Member.borrowedBooks = borrowedBooks;
     }
 
     public int calculateBorrowLimit() {
@@ -49,14 +65,14 @@ public class Member {
     }
 
     public int getMaxBooks() {
-        return 0; // default output, will be overrided by StaffMember and StudentMember classes
+        return 0;
     }
 
     @Override
     public String toString() {
         return "Name: " + this.name +
-                "\nMember ID: " + this.memberId +
+                "\nMember ID: " + memberId +
                 "\nEmail: " + this.email +
-                "\nBorrowed Books: " + this.borrowedBooks;
+                "\nBorrowed Books: " + borrowedBooks;
     }
 }
