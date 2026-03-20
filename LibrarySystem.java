@@ -15,31 +15,45 @@ public class LibrarySystem {
         System.out.println("Welcome");
         //Book.AddBook(1, "Hobbit", true, "Tolkien", "1234");
         do {
-            System.out.println("Enter the numer of the option you wish to carry"
-                    + " out"
-                + "\n1. Add a Book: "
-                + "\n2. View a Book: "
+            System.out.println("Enter the numer for the option you wish to carry"
+                    + " out:"
+                + "\n1. Add a Book"
+                + "\n2. View a Book"
                 + "\n3. View all Books"
-                + "\n4. Add a new Member: "
-                + "\n5. View all Members: "
+                + "\n4. Take out a book"
+                + "\n5. Return a Book"
+                + "\n6. Add a new Member"
+                + "\n7. View all Members"
             );
             userIntInput = scanner.nextInt();
             scanner.nextLine();
             switch (userIntInput) {
                 case 1: 
                     Loan.setBook();
+                    break;
                 case 2: 
-                    System.out.println("Here are the details on your book" + Loan.getBook());
+                    System.out.println("Loading info on selected book...\n" + Loan.getBook());
+                    break;
                 case 3: 
-                    System.out.println("Here are all the current books in the system" + Book.GetAllBooks());
-                case 4: 
-                    //Set Staff member function here
+                    System.out.println("Here are all the current books in the system:\n" + Book.GetAllBooks());
+                    break;
+                case 4:
+                    Loan.Borrow();
                 case 5: 
+                    Loan.Return();
+                    break;
+                case 6: 
+                    Member.getMember(); //temp, change to add member.
+                    break;
+                case 7: 
                     //A function to view all members here
                     
+                    
             }
-            System.out.println("Would you like to exit the program"
+            System.out.println("Would you like to exit the program? \n"
                     + "1. Yes, 2. No");
+            userIntInput = scanner.nextInt();
+            scanner.nextLine();
             if (userIntInput == 1) {
                 exitProgram = true;
             }
@@ -48,6 +62,7 @@ public class LibrarySystem {
             }
 
         } while (exitProgram == false);
+        scanner.close();
     }
 
 
