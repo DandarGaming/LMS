@@ -101,7 +101,7 @@ public class Book extends LibraryItem {
     //A function to get the entire books hashmap of book objects
     public static HashMap<String, Book> GetAllBooks() {
         //checks if the books hashmap has books in it
-        if (books == null) {
+        if (books.isEmpty()) {
             System.out.println("Sorry but no books are in the system");
             return books;
         }
