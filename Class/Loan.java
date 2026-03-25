@@ -43,7 +43,6 @@ public class Loan {
             return members;
         }
         else {
-            System.out.println("Here are all the members");
             return members;
         }
     }
