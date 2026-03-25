@@ -106,6 +106,7 @@ public class Book extends LibraryItem {
             return books;
         }
         else {
+            System.out.println("Here are all the books");
             return books;
         }
     }
