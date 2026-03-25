@@ -34,6 +34,18 @@ public class Loan {
             }
         }
     }
+    
+    //A function to get the entire books hashmap of book objects
+    public static HashMap<String, Member> GetAllMembers() {
+        //checks if the books hashmap has books in it
+        if (members == null) {
+            System.out.println("Sorry but no books are in the system");
+            return members;
+        }
+        else {
+            return members;
+        }
+    }
 
     //returns the member
     public Member getMember() {
