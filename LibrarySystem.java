@@ -15,7 +15,7 @@ public class LibrarySystem {
         System.out.println("Welcome");
         //Book.AddBook(1, "Hobbit", true, "Tolkien", "1234");
         do {
-            System.out.println("Enter the numer for the option you wish to carry"
+            System.out.println("Enter the number for the option you wish to carry"
                     + " out:"
                 + "\n1. Add a Book"
                 + "\n2. View a Book"
@@ -43,23 +43,35 @@ public class LibrarySystem {
                     Loan.Return();
                     break;
                 case 6: 
-                    Loan.setMember();
+                    Loan.setMember(); 
                     break;
                 case 7: 
                     //A function to view all members here
                     
                     
             }
-            System.out.println("Would you like to exit the program? \n"
+            userIntInput = 0;
+            
+            do {
+                System.out.println("Would you like to exit the program? \n"
                     + "1. Yes, 2. No");
-            userIntInput = scanner.nextInt();
-            scanner.nextLine();
-            if (userIntInput == 1) {
-                exitProgram = true;
-            }
-            else {
+                userIntInput = scanner.nextInt();
+                scanner.nextLine();
+                switch (userIntInput) {
+                    case 1:
+                        exitProgram = true;
+                        break;
+                    case 2:
+                        exitProgram = false;
+                        break;
+                    default:
+                        System.out.println("Enter Valid Input");
+                        userIntInput = 0;
+                        break;
+                }
+            } while (userIntInput != 1 && userIntInput != 2);
                 
-            }
+            
 
         } while (exitProgram == false);
         scanner.close();
