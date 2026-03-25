@@ -37,7 +37,7 @@ public class Loan {
     
     //A function to get the entire members hashmap of member objects
     public static HashMap<String, Member> GetAllMembers() {
-        //checks if the books hashmap has books in it
+        //checks if the members hashmap has members in it
         if (members == null) {
             System.out.println("Sorry but no books are in the system");
             return members;
