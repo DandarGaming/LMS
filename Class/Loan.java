@@ -39,10 +39,11 @@ public class Loan {
     public static HashMap<String, Member> GetAllMembers() {
         //checks if the members hashmap has members in it
         if (members.isEmpty()) {
-            System.out.println("Sorry but no books are in the system");
+            System.out.println("Sorry but no members are in the system");
             return members;
         }
         else {
+            System.out.println("Here are all the members");
             return members;
         }
     }
