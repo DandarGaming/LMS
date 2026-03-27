@@ -54,8 +54,19 @@ public class Loan {
         return this.member;
     }
     
+    //Removes a member from the system
     public void removeMember(String memberName) {
-        members.remove(memberName);
+        //Checks if there are members in the system and if that member is in the system
+        if (members.isEmpty()) {
+            System.out.println("Sorry but there are no members in the system");
+            
+        } 
+        else if (members.get(memberName) == null) {
+            System.out.println("That member is not in our system");
+        }
+        else {
+            members.remove(memberName);
+        }
     }
     
     //Creates a new member in the system
