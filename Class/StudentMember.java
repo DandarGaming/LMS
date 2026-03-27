@@ -1,6 +1,6 @@
 public class StudentMember extends Member {
 
-    private final int maxBooks = 5; ///sets maxBooks as 5 within the StudentMember Class
+    private final int maxBooks = 5; //sets maxBooks as 5 within the StudentMember Class
 
     public StudentMember(String name, int memberId, String email, int borrowedBooks) {
         super(name, memberId, email, borrowedBooks);
