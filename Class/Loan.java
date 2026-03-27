@@ -54,6 +54,10 @@ public class Loan {
         return this.member;
     }
     
+    public void removeMember(String memberName) {
+        members.remove(memberName);
+    }
+    
     //Creates a new member in the system
     public static void setMember() {
         //Outputs instructions on how to create a member and gets a user input results
@@ -91,7 +95,7 @@ public class Loan {
     
     //Gets the information needed to get a book from the Book class
     public static Book getBook() {
-        System.out.println("Enter the name of the bookyou want to get: ");
+        System.out.println("Enter the name of the book you want to get: ");
         bookTitle = scanner.nextLine();
         //calls GetBook with the users input
         return Book.GetBook(bookTitle);
