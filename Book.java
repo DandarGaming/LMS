@@ -132,7 +132,19 @@ public class Book extends LibraryItem {
         return book;
     }
     
+    //Removes a book from the hashmap
     public static void RemoveBook(String title) {
-        books.remove(title);
+        //Checks if there are books in the system and if there is that book in the system
+        if (books.isEmpty()) {
+            System.out.println("Sorry but there are no books in the system");
+            
+        } 
+        else if (books.get(title) == null) {
+            System.out.println("That book is not in our system");
+        }
+        else {
+            books.remove(title);
+        }
+        
     }
 }
