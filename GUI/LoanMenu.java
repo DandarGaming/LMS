@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.lms;
+package com.mycompany.rectangle;
 
 /**
  *
@@ -51,10 +51,12 @@ public class LibraryGUI extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         EmailInput = new javax.swing.JTextPane();
+        AddMemberExitBtn = new javax.swing.JButton();
         LoanMenu = new javax.swing.JFrame();
         jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        BorrowBookBtn = new javax.swing.JButton();
+        ReturnBookBtn = new javax.swing.JButton();
+        LoanExitBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         MemberBtn = new javax.swing.JToggleButton();
         jLabel2 = new javax.swing.JLabel();
@@ -205,6 +207,8 @@ public class LibraryGUI extends javax.swing.JFrame {
 
         jScrollPane3.setViewportView(EmailInput);
 
+        AddMemberExitBtn.setText("Go back");
+
         javax.swing.GroupLayout AddMemberMenuLayout = new javax.swing.GroupLayout(AddMemberMenu.getContentPane());
         AddMemberMenu.getContentPane().setLayout(AddMemberMenuLayout);
         AddMemberMenuLayout.setHorizontalGroup(
@@ -223,7 +227,10 @@ public class LibraryGUI extends javax.swing.JFrame {
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30))))
+                        .addGap(30, 30, 30))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddMemberMenuLayout.createSequentialGroup()
+                        .addComponent(AddMemberExitBtn)
+                        .addContainerGap())))
         );
         AddMemberMenuLayout.setVerticalGroup(
             AddMemberMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -241,31 +248,39 @@ public class LibraryGUI extends javax.swing.JFrame {
                 .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 58, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addComponent(AddMemberExitBtn)
+                .addContainerGap())
         );
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel6.setText("Loan Menu");
 
-        jButton1.setText("Borrow Book");
+        BorrowBookBtn.setText("Borrow Book");
 
-        jButton4.setText("Return Book");
+        ReturnBookBtn.setText("Return Book");
+
+        LoanExitBtn.setText("Go Back");
 
         javax.swing.GroupLayout LoanMenuLayout = new javax.swing.GroupLayout(LoanMenu.getContentPane());
         LoanMenu.getContentPane().setLayout(LoanMenuLayout);
         LoanMenuLayout.setHorizontalGroup(
             LoanMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoanMenuLayout.createSequentialGroup()
+            .addGroup(LoanMenuLayout.createSequentialGroup()
                 .addContainerGap(144, Short.MAX_VALUE)
                 .addGroup(LoanMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoanMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoanMenuLayout.createSequentialGroup()
+                            .addGroup(LoanMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(BorrowBookBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(ReturnBookBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGap(144, 144, 144))
+                        .addGroup(LoanMenuLayout.createSequentialGroup()
+                            .addComponent(jLabel6)
+                            .addGap(135, 135, 135)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoanMenuLayout.createSequentialGroup()
-                        .addGroup(LoanMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(144, 144, 144))
-                    .addGroup(LoanMenuLayout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(135, 135, 135))))
+                        .addComponent(LoanExitBtn)
+                        .addContainerGap())))
         );
         LoanMenuLayout.setVerticalGroup(
             LoanMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -273,10 +288,12 @@ public class LibraryGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel6)
                 .addGap(38, 38, 38)
-                .addComponent(jButton1)
+                .addComponent(BorrowBookBtn)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
-                .addContainerGap(152, Short.MAX_VALUE))
+                .addComponent(ReturnBookBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
+                .addComponent(LoanExitBtn)
+                .addContainerGap())
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -400,27 +417,29 @@ public class LibraryGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
+    private javax.swing.JButton AddMemberExitBtn;
     private javax.swing.JFrame AddMemberMenu;
     private javax.swing.JButton AddNewBookBtn;
     private javax.swing.JButton AddNewBookBtn1;
     private javax.swing.JToggleButton AddNewMemberBtn;
     private javax.swing.JToggleButton BookBtn1;
     private javax.swing.JFrame BookMenu;
+    private javax.swing.JButton BorrowBookBtn;
     private javax.swing.JToggleButton DeleteMemberBtn;
     private javax.swing.JButton EditMemberBtn;
     private javax.swing.JTextPane EmailInput;
     private javax.swing.JButton ExitBookMenuBtn;
     private javax.swing.JButton ExitMemberMenuBtn;
+    private javax.swing.JButton LoanExitBtn;
     private javax.swing.JFrame LoanMenu;
     private javax.swing.JToggleButton MemberBtn;
     private javax.swing.JTextPane MemberIDInput;
     private javax.swing.JFrame MemberMenu;
     private javax.swing.JTextPane NameInput;
+    private javax.swing.JButton ReturnBookBtn;
     private javax.swing.JToggleButton ViewMemberBtn;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
