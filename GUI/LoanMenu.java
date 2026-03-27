@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.lms;
+
 /**
  *
  * @author DanielSukhanov
@@ -51,6 +52,9 @@ public class LibraryGUI extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         EmailInput = new javax.swing.JTextPane();
         LoanMenu = new javax.swing.JFrame();
+        jLabel6 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         MemberBtn = new javax.swing.JToggleButton();
         jLabel2 = new javax.swing.JLabel();
@@ -240,15 +244,39 @@ public class LibraryGUI extends javax.swing.JFrame {
                 .addGap(0, 58, Short.MAX_VALUE))
         );
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel6.setText("Loan Menu");
+
+        jButton1.setText("Borrow Book");
+
+        jButton4.setText("Return Book");
+
         javax.swing.GroupLayout LoanMenuLayout = new javax.swing.GroupLayout(LoanMenu.getContentPane());
         LoanMenu.getContentPane().setLayout(LoanMenuLayout);
         LoanMenuLayout.setHorizontalGroup(
             LoanMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoanMenuLayout.createSequentialGroup()
+                .addContainerGap(144, Short.MAX_VALUE)
+                .addGroup(LoanMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoanMenuLayout.createSequentialGroup()
+                        .addGroup(LoanMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(144, 144, 144))
+                    .addGroup(LoanMenuLayout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(135, 135, 135))))
         );
         LoanMenuLayout.setVerticalGroup(
             LoanMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(LoanMenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6)
+                .addGap(38, 38, 38)
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
+                .addComponent(jButton4)
+                .addContainerGap(152, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -389,13 +417,16 @@ public class LibraryGUI extends javax.swing.JFrame {
     private javax.swing.JFrame MemberMenu;
     private javax.swing.JTextPane NameInput;
     private javax.swing.JToggleButton ViewMemberBtn;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
