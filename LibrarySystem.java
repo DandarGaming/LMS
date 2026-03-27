@@ -1,4 +1,4 @@
-package com.example;
+package com.lms;
 
 import java.util.Scanner;
 
