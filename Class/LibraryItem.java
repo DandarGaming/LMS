@@ -50,8 +50,7 @@ public class LibraryItem {
 }
 
     public void setAvailable(boolean available) {
-        // if input = Y set book to available
-        // if input = N set book to unavailable
+        // Set book availability to whatever the user inputs
         this.available = available;
     }
 
