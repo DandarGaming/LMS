@@ -131,4 +131,8 @@ public class Book extends LibraryItem {
         }
         return book;
     }
+    
+    public static void RemoveBook(String title) {
+        books.remove(title);
+    }
 }
