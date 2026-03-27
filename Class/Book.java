@@ -1,4 +1,4 @@
-package com.example;
+package com.mycompany.lms;
 
 import java.util.HashMap;
 
