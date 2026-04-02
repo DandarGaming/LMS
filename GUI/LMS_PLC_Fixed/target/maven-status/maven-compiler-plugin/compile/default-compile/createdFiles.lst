@@ -1,0 +1,11 @@
+com\mycompany\lms_plc\StudentMember.class
+com\mycompany\lms_plc\Member.class
+com\mycompany\lms_plc\StaffMember.class
+com\mycompany\lms_plc\Book.class
+com\mycompany\lms_plc\LibraryGUI$1.class
+com\mycompany\lms_plc\LibraryGUI$3.class
+com\mycompany\lms_plc\LibraryItem.class
+com\mycompany\lms_plc\LibraryGUI.class
+com\mycompany\lms_plc\LibraryGUI$4.class
+com\mycompany\lms_plc\LibraryGUI$2.class
+com\mycompany\lms_plc\Loan.class
