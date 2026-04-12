@@ -133,6 +133,12 @@ public class LibraryGUI extends javax.swing.JFrame {
             return;
         }
 
+         if (!email.contains("@") || !email.contains(".")) {
+    JOptionPane.showMessageDialog(AddMemberMenu,
+            "Please enter a valid email address (must contain '@' and '.').",
+            "Invalid Email", JOptionPane.ERROR_MESSAGE);
+    return;
+}
         int id;
         try {
             id = Integer.parseInt(idText);
