@@ -2,17 +2,6 @@ package com.mycompany.lms_plc;
 
 import javax.swing.JOptionPane;
 
-/**
- * Main GUI for the Library Management System.
- *
- * Sub-frames live inside this one file as NetBeans generates them:
- *   LibraryGUI (main window)
- *     ├─ MemberMenu
- *     │    └─ AddMemberMenu
- *     ├─ BookMenu
- *     │    └─ LoanMenu
- *     └─ (dialogs via JOptionPane)
- */
 public class LibraryGUI extends javax.swing.JFrame {
 
     public LibraryGUI() {
@@ -36,7 +25,6 @@ public class LibraryGUI extends javax.swing.JFrame {
         LoanMenu.setLocationRelativeTo(null);
     }
 
-    // ── Extra listener wiring (buttons added beyond the basic stubs) ──────────
 
     private void wireListeners() {
 
@@ -299,10 +287,10 @@ public class LibraryGUI extends javax.swing.JFrame {
         MemberTypeComboBox.setSelectedIndex(0);
     }
 
-    // ── NetBeans-generated initComponents ─────────────────────────────────────
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+
+    
     private void initComponents() {
 
         MemberMenu = new javax.swing.JFrame();
@@ -587,7 +575,7 @@ public class LibraryGUI extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
     // ── Event handler stubs ───────────────────────────────────────────────────
 
@@ -682,5 +670,4 @@ public class LibraryGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    // End of variables declaration//GEN-END:variables
 }
