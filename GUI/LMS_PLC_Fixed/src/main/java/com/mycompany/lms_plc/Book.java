@@ -79,10 +79,10 @@ public class Book extends LibraryItem {
     //A overide method for the toSting method
     @Override
     public String toString() {
-        return  " [ Title: " + getTitle() + "\n" +
-                "Author: " + this.author + "\n" +
-                "ISBN: " + this.isbn + "\n" +
-                "Available: = " + isAvailable() + " ]\n";
+        return "[ Title: " + getTitle()
+                + "  |  Author: " + author
+                + "  |  ISBN: " + isbn
+                + "  |  Available: " + isAvailable() + " ]";
     }
 
     //Adds new books to the books hashmap
