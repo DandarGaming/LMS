@@ -1,4 +1,4 @@
-package com.example;
+package com.mycompany.lms_plc;
 
 import java.util.Scanner;
 
