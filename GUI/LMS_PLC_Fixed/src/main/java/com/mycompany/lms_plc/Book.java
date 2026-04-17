@@ -27,7 +27,7 @@ public class Book extends LibraryItem {
         return "[ Title: " + getTitle()
                 + "  |  Author: " + author
                 + "  |  ISBN: " + isbn
-                + "  |  Available: " + isAvailable() + " ]";
+                + "  |  Available: " + isAvailable() + " ]";//outputs title,author,isbn and if the book is available
     }
 
     // ── Static helpers ────────────────────────────────────────────────────────
@@ -43,8 +43,8 @@ public class Book extends LibraryItem {
         if (title == null || title.isBlank()) return "Title cannot be empty";
         if (author == null || author.isBlank()) return "Author cannot be empty";
         if (isbn == null || isbn.isBlank()) return "ISBN cannot be empty";
-        if (books.containsKey(title)) return "A book with that title already exists";
-        bookCounter++;
+        if (books.containsKey(title)) return "A book with that title already exists";//error handling if it is null or it already exists
+        bookCounter++; 
         AddBook(bookCounter, title, true, author, isbn);
         return "SUCCESS";
     }
