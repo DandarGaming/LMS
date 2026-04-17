@@ -39,29 +39,29 @@ public class LibraryGUI extends javax.swing.JFrame {
         ViewMemberBtn.addActionListener(e -> {
             java.util.HashMap<String, Member> all = Loan.GetAllMembers();
             if (all.isEmpty()) {
-                JOptionPane.showMessageDialog(MemberMenu, "No members in the system.",
-                        "View Members", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(MemberMenu, "No members in the system.", // if there isnt any members, This error will pop up
+                        "View Members", JOptionPane.INFORMATION_MESSAGE); 
                 return;
             }
             StringBuilder sb = new StringBuilder();
             all.values().forEach(m -> sb.append(m).append("\n─────────────────\n"));
-            showScrollableDialog(MemberMenu, sb.toString(), "All Members");
+            showScrollableDialog(MemberMenu, sb.toString(), "All Members"); // Views Members within the system
         });
 
         EditMemberBtn.addActionListener(e -> {
             String name = JOptionPane.showInputDialog(MemberMenu,
                     "Enter the member's name to edit:");
-            if (name == null || name.isBlank()) return;
+            if (name == null || name.isBlank()) return; //checks if name is in the system
             Member m = Loan.GetAllMembers().get(name.trim());
             if (m == null) {
-                JOptionPane.showMessageDialog(MemberMenu, "Member not found: " + name,
+                JOptionPane.showMessageDialog(MemberMenu, "Member not found: " + name, // error handling for member not in system
                         "Edit Member", JOptionPane.ERROR_MESSAGE);
                 return;
             }
             String newEmail = JOptionPane.showInputDialog(MemberMenu,
-                    "Current email: " + m.getEmail() + "\nEnter new email (leave blank to keep):");
+                    "Current email: " + m.getEmail() + "\nEnter new email (leave blank to keep):"); //prompts member for new email to edit
             if (newEmail != null && !newEmail.isBlank()) m.setEmail(newEmail.trim());
-            JOptionPane.showMessageDialog(MemberMenu, "Member updated:\n" + m,
+            JOptionPane.showMessageDialog(MemberMenu, "Member updated:\n" + m, //updates the email of member
                     "Edit Member", JOptionPane.INFORMATION_MESSAGE);
         });
 
@@ -74,8 +74,8 @@ public class LibraryGUI extends javax.swing.JFrame {
         ViewBookBtn.addActionListener(e -> {                 // View Books
             java.util.HashMap<String, Book> all = Book.GetAllBooks();
             if (all.isEmpty()) {
-                JOptionPane.showMessageDialog(BookMenu, "No books in the system.",
-                        "View Books", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(BookMenu, "No books in the system.", //error handling for no books in system
+                        "View Books", JOptionPane.INFORMATION_MESSAGE); //shows book in system
                 return;
             }
             StringBuilder sb = new StringBuilder();
@@ -123,7 +123,7 @@ public class LibraryGUI extends javax.swing.JFrame {
 
          if (!email.contains("@") || !email.contains(".")) {
     JOptionPane.showMessageDialog(AddMemberMenu,
-            "Please enter a valid email address (must contain '@' and '.').",
+            "Please enter a valid email address (must contain '@' and '.').", // outputs email includes @ and .
             "Invalid Email", JOptionPane.ERROR_MESSAGE);
     return;
 }
@@ -132,7 +132,7 @@ public class LibraryGUI extends javax.swing.JFrame {
             id = Integer.parseInt(idText);
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(AddMemberMenu,
-                    "Member ID must be a number.", "Input Error", JOptionPane.ERROR_MESSAGE);
+                    "Member ID must be a number.", "Input Error", JOptionPane.ERROR_MESSAGE);//error handling makes sure that member ID is an integer
             return;
         }
 
@@ -140,50 +140,50 @@ public class LibraryGUI extends javax.swing.JFrame {
         if ("SUCCESS".equals(result)) {
             JOptionPane.showMessageDialog(AddMemberMenu,
                     type + " member \"" + name + "\" added successfully!",
-                    "Member Added", JOptionPane.INFORMATION_MESSAGE);
+                    "Member Added", JOptionPane.INFORMATION_MESSAGE); //outputs member being added
             clearAddMemberFields();
             AddMemberMenu.setVisible(false);
             MemberMenu.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(AddMemberMenu,
-                    "Error: " + result, "Add Member Failed", JOptionPane.ERROR_MESSAGE);
+                    "Error: " + result, "Add Member Failed", JOptionPane.ERROR_MESSAGE); //error handing for add member failed
         }
     }
 
     private void handleAddBook() {
-        String title  = JOptionPane.showInputDialog(BookMenu, "Book title:");
+        String title  = JOptionPane.showInputDialog(BookMenu, "Book title:"); //prompts member of book title
         if (title == null || title.isBlank()) return;
-        String author = JOptionPane.showInputDialog(BookMenu, "Author:");
+        String author = JOptionPane.showInputDialog(BookMenu, "Author:");//prompts member of book author
         if (author == null || author.isBlank()) return;
-        String isbn   = JOptionPane.showInputDialog(BookMenu, "ISBN:");
+        String isbn   = JOptionPane.showInputDialog(BookMenu, "ISBN:");//prompts member of book isbn
         if (isbn == null || isbn.isBlank()) return;
 
         String result = Book.addBookGUI(title.trim(), author.trim(), isbn.trim());
         if ("SUCCESS".equals(result)) {
             JOptionPane.showMessageDialog(BookMenu,
                     "\"" + title.trim() + "\" added to the library!",
-                    "Book Added", JOptionPane.INFORMATION_MESSAGE);
+                    "Book Added", JOptionPane.INFORMATION_MESSAGE);//outputs that book has been added to library system
         } else {
             JOptionPane.showMessageDialog(BookMenu,
-                    "Error: " + result, "Add Book Failed", JOptionPane.ERROR_MESSAGE);
+                    "Error: " + result, "Add Book Failed", JOptionPane.ERROR_MESSAGE);//error handling of adding book failing
         }
     }
 
     private void handleEditBook() {
-        String title = JOptionPane.showInputDialog(BookMenu, "Enter the book title to edit:");
+        String title = JOptionPane.showInputDialog(BookMenu, "Enter the book title to edit:");//prompts member for book title to edit
         if (title == null || title.isBlank()) return;
 
         Book book = Book.GetBook(title.trim());
         if (book == null) {
-            JOptionPane.showMessageDialog(BookMenu, "Book not found: " + title,
+            JOptionPane.showMessageDialog(BookMenu, "Book not found: " + title, //error handling for book not in system
                     "Edit Book", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         String newAuthor = JOptionPane.showInputDialog(BookMenu,
-                "Current author: " + book.getAuthor() + "\nNew author (leave blank to keep):");
+                "Current author: " + book.getAuthor() + "\nNew author (leave blank to keep):");//edit book author 
         String newIsbn = JOptionPane.showInputDialog(BookMenu,
-                "Current ISBN: " + book.getIsbn() + "\nNew ISBN (leave blank to keep):");
+                "Current ISBN: " + book.getIsbn() + "\nNew ISBN (leave blank to keep):"); //edit book isbn 
 
         String result = Book.editBookGUI(title.trim(),
                 newAuthor == null ? "" : newAuthor.trim(),
@@ -191,7 +191,7 @@ public class LibraryGUI extends javax.swing.JFrame {
         if ("SUCCESS".equals(result)) {
             JOptionPane.showMessageDialog(BookMenu,
                     "\"" + title.trim() + "\" updated successfully.",
-                    "Book Updated", JOptionPane.INFORMATION_MESSAGE);
+                    "Book Updated", JOptionPane.INFORMATION_MESSAGE);//outputs member of book being updated
         } else {
             JOptionPane.showMessageDialog(BookMenu,
                     "Error: " + result, "Edit Book Failed", JOptionPane.ERROR_MESSAGE);
@@ -200,74 +200,74 @@ public class LibraryGUI extends javax.swing.JFrame {
 
     private void handleDeleteBook() {
         if (Book.GetAllBooks().isEmpty()) {
-            JOptionPane.showMessageDialog(BookMenu, "No books in the system.",
-                    "Delete Book", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(BookMenu, "No books in the system.", //error handling if no book is in the system
+                    "Delete Book", JOptionPane.INFORMATION_MESSAGE); 
             return;
         }
         String title = JOptionPane.showInputDialog(BookMenu,
-                "Enter the title of the book to delete:");
+                "Enter the title of the book to delete:"); // prompts member for book title to delete
         if (title == null || title.isBlank()) return;
 
         int confirm = JOptionPane.showConfirmDialog(BookMenu,
                 "Are you sure you want to delete \"" + title.trim() + "\"?",
                 "Confirm Delete", JOptionPane.YES_NO_OPTION);
-        if (confirm != JOptionPane.YES_OPTION) return;
+        if (confirm != JOptionPane.YES_OPTION) return; // prompts member for confirmation of deletion and if confirm then process deletion
 
         String result = Book.removeBookGUI(title.trim());
         if ("SUCCESS".equals(result)) {
             JOptionPane.showMessageDialog(BookMenu,
                     "\"" + title.trim() + "\" removed from the library.",
-                    "Book Deleted", JOptionPane.INFORMATION_MESSAGE);
+                    "Book Deleted", JOptionPane.INFORMATION_MESSAGE); //outputs the book being removed from library system
         } else {
             JOptionPane.showMessageDialog(BookMenu,
-                    "Error: " + result, "Delete Book Failed", JOptionPane.ERROR_MESSAGE);
+                    "Error: " + result, "Delete Book Failed", JOptionPane.ERROR_MESSAGE);//error handling for delete book failed
         }
     }
 
     private void handleBorrowBook() {
         if (Loan.GetAllMembers().isEmpty()) {
-            JOptionPane.showMessageDialog(LoanMenu, "No members in the system. Add a member first.",
+            JOptionPane.showMessageDialog(LoanMenu, "No members in the system. Add a member first.",//error handling if no member in system
                     "Borrow Book", JOptionPane.WARNING_MESSAGE);
             return;
         }
         if (Book.GetAllBooks().isEmpty()) {
-            JOptionPane.showMessageDialog(LoanMenu, "No books in the system. Add a book first.",
+            JOptionPane.showMessageDialog(LoanMenu, "No books in the system. Add a book first.",//error handling if no book in system
                     "Borrow Book", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        String memberName = JOptionPane.showInputDialog(LoanMenu, "Member name:");
+        String memberName = JOptionPane.showInputDialog(LoanMenu, "Member name:");//prompts member for member name
         if (memberName == null || memberName.isBlank()) return;
-        String bookTitle = JOptionPane.showInputDialog(LoanMenu, "Book title:");
+        String bookTitle = JOptionPane.showInputDialog(LoanMenu, "Book title:");//prompts member for book title they want to borrow
         if (bookTitle == null || bookTitle.isBlank()) return;
 
         String result = Loan.borrowGUI(memberName.trim(), bookTitle.trim());
         if ("SUCCESS".equals(result)) {
             JOptionPane.showMessageDialog(LoanMenu,
                     memberName.trim() + " has borrowed \"" + bookTitle.trim() + "\".",
-                    "Borrow Successful", JOptionPane.INFORMATION_MESSAGE);
+                    "Borrow Successful", JOptionPane.INFORMATION_MESSAGE);//outputs borrow being successful
         } else {
             JOptionPane.showMessageDialog(LoanMenu,
-                    "Error: " + result, "Borrow Failed", JOptionPane.ERROR_MESSAGE);
+                    "Error: " + result, "Borrow Failed", JOptionPane.ERROR_MESSAGE);// error handling which outputs that borrowing failed
         }
     }
 
     private void handleReturnBook() {
         String memberName = JOptionPane.showInputDialog(LoanMenu, "Member name:");
-        if (memberName == null || memberName.isBlank()) return;
+        if (memberName == null || memberName.isBlank()) return;//Checks if member is in system
 
         String loans = Loan.getMemberLoansGUI(memberName.trim());
         String bookTitle = JOptionPane.showInputDialog(LoanMenu,
-                loans + "\n\nEnter the title of the book to return:");
+                loans + "\n\nEnter the title of the book to return:");//Checks if book is in system
         if (bookTitle == null || bookTitle.isBlank()) return;
 
         String result = Loan.returnGUI(memberName.trim(), bookTitle.trim());
         if ("SUCCESS".equals(result)) {
             JOptionPane.showMessageDialog(LoanMenu,
                     "\"" + bookTitle.trim() + "\" returned successfully.",
-                    "Return Successful", JOptionPane.INFORMATION_MESSAGE);
+                    "Return Successful", JOptionPane.INFORMATION_MESSAGE);//checks if book is loaned to member and if it is then you approve the return of the book and output "BookTitle returned successfully"
         } else {
             JOptionPane.showMessageDialog(LoanMenu,
-                    "Error: " + result, "Return Failed", JOptionPane.ERROR_MESSAGE);
+                    "Error: " + result, "Return Failed", JOptionPane.ERROR_MESSAGE);// error handling which outputs that return failed
         }
     }
 
@@ -342,7 +342,7 @@ public class LibraryGUI extends javax.swing.JFrame {
                 DeleteMemberBtnActionPerformed(evt);
             }
         });
-        ExitMemberMenuBtn.setText("Exit to Main Menu");
+        ExitMemberMenuBtn.setText("Exit to Main Menu"); // Exits from MemberMenu to MainMenu
         ExitMemberMenuBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ExitMemberMenuBtnActionPerformed(evt);
@@ -597,22 +597,22 @@ public class LibraryGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_ExitMemberMenuBtnActionPerformed
 
     private void DeleteMemberBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteMemberBtnActionPerformed
-        String name = JOptionPane.showInputDialog(MemberMenu, "Enter the member's name to delete:");
-        if (name == null || name.isBlank()) return;
+        String name = JOptionPane.showInputDialog(MemberMenu, "Enter the member's name to delete:");// Prompts user for member needed to be deleted
+        if (name == null || name.isBlank()) return;// if name is equal to the stored arrays in "name" proceed 
 
         int confirm = JOptionPane.showConfirmDialog(MemberMenu,
                 "Are you sure you want to delete member \"" + name.trim() + "\"?",
-                "Confirm Delete", JOptionPane.YES_NO_OPTION);
+                "Confirm Delete", JOptionPane.YES_NO_OPTION);// Confirmation of member deletion
         if (confirm != JOptionPane.YES_OPTION) return;
 
         String result = Loan.removeMemberGUI(name.trim());
         if ("SUCCESS".equals(result)) {
             JOptionPane.showMessageDialog(MemberMenu,
-                    "Member \"" + name.trim() + "\" deleted.",
+                    "Member \"" + name.trim() + "\" deleted.",//output of successful member deletion
                     "Deleted", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(MemberMenu,
-                    "Error: " + result, "Delete Failed", JOptionPane.ERROR_MESSAGE);
+                    "Error: " + result, "Delete Failed", JOptionPane.ERROR_MESSAGE);// error case due to member not in system
         }
     }//GEN-LAST:event_DeleteMemberBtnActionPerformed
 
