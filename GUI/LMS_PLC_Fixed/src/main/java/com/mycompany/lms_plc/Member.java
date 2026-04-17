@@ -31,10 +31,10 @@ public class Member {
 
     @Override
     public String toString() {
-        return "Name: " + name
-                + "\nMember ID: " + memberId
-                + "\nEmail: " + email
-                + "\nBorrowed Books: " + borrowedBooks
-                + "\nMax Books: " + getMaxBooks();
+        return "Name: " + name //Output of name of a member
+                + "\nMember ID: " + memberId //Output of member ID of a member
+                + "\nEmail: " + email //Output of Email of a member
+                + "\nBorrowed Books: " + borrowedBooks //Output of borrowed books of a member
+                + "\nMax Books: " + getMaxBooks(); //Output max Books based on Member
     }
 }
