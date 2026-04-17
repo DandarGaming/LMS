@@ -23,6 +23,6 @@ public class LibraryItem {
 
     @Override
     public String toString() {
-        return "Book ID: " + itemId + "\nTitle: " + title + "\nAvailability: " + available;
+        return "Book ID: " + itemId + "\nTitle: " + title + "\nAvailability: " + available; //returns the book ID,title and if its available
     }
 }
