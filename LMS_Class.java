@@ -1,4 +1,4 @@
-package com.mycompany.lms;
+package com.mycompany.lms_plc;
 
 /**
  *
