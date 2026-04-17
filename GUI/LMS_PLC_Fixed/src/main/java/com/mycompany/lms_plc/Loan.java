@@ -6,6 +6,7 @@ import java.util.HashMap;
 public class Loan {
 
     private Member member;
+    static Member staticMember;
     private Book[] books = new Book[10];
 
     private static final HashMap<String, Member> members = new HashMap<>();
@@ -22,7 +23,10 @@ public class Loan {
 
     public static HashMap<String, Member> GetAllMembers() { return members; }
 
-    public Member getMember() { return this.member; }
+    public static Member getMember(String memberName) { 
+        staticMember = members.get(memberName);
+        return staticMember;
+    }
 
     /**
      * GUI-friendly member addition.
