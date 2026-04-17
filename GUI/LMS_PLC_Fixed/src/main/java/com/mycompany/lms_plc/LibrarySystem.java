@@ -35,12 +35,22 @@ public class LibrarySystem {
             scanner.nextLine();
             switch (userIntInput) {
                 case 1: 
-                    Loan.setBook();
+                    int bookId;
+                    System.out.println("Enter the Id of the book: ");
+                    bookId = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Enter the title of the book: ");
+                    bookTitle = scanner.nextLine();
+                    System.out.println("Enter the name of the books author: ");
+                    bookAuthor = scanner.nextLine();
+                    System.out.println("Enter the book Isbn: ");
+                    bookIsbn = scanner.nextLine();
+                    Book.AddBook(bookId, bookTitle, true, bookAuthor, bookIsbn);
                     break;
                 case 2: 
                     System.out.println("Enter the name of the book you want to get: ");
                     bookTitle = scanner.nextLine();
-                    System.out.println("Loading info on selected book...\n" + Loan.getBook(bookTitle));
+                    System.out.println("Loading info on selected book...\n" + Book.GetBook(bookTitle));
                     break;
                 case 3: 
                     System.out.println("Here are all the current books in the system:\n" + Book.GetAllBooks());
@@ -70,7 +80,7 @@ public class LibrarySystem {
                             else {
                                 //checks if the book is currently available for borrowing
                                 if (book.isAvailable() == true) {
-                                    Loan.Borrow(memberName, member, book);
+                                    Loan.borrowGUI(memberName, bookTitle);
                                     System.out.println(member.getName() + " has borrowed " + book.getTitle() + " and now has " + member.getBorrowedBooks() + " borrowed books");
                                 }
                                 else {
@@ -106,10 +116,10 @@ public class LibrarySystem {
                         }
                         else {
                             //gets the loan object that matches memberName
-                            Loan loan = Loan.getLoan(memberName);
+                            String loan  = Loan.getMemberLoansGUI(memberName);
                             //Tells the user what books the member has borrowed
                             System.out.println("That member has borrowed " + member.getBorrowedBooks() + " books");
-                            System.out.println("The books they have borrowed are: " + Loan.getLoanDetails(memberName));
+                            System.out.println("The books they have borrowed are: " + loan);
                             System.out.println("Enter the name of the book the member wishes to return: ");
                             bookTitle = scanner.nextLine();
                             //gets the book with the matching title
@@ -120,7 +130,7 @@ public class LibrarySystem {
                                 System.out.println("Sorry but that book has not been borrowed");
                             }
                             else {
-                                Loan.Return(book, member, loan);
+                                Loan.returnGUI(memberName, bookTitle);
                                 System.out.println(member.getName() + " has returned " + book.getTitle() + " and now has " + member.getBorrowedBooks() + " borrowed books");                    
                             }
                         }
@@ -149,7 +159,8 @@ public class LibrarySystem {
                     scanner.nextLine();
                     System.out.println("Enter the new members email: ");
                     memberEmail = scanner.nextLine();   
-                    Loan.setMember(memberID, memberName, memberEmail, memberLevel); 
+                    String results = Loan.addMemberGUI(memberLevel, memberName, memberID, memberEmail); 
+                    System.out.println(results);
                     //Outputs a message to alert the user it was successful
                     System.out.println("You have successfully added the member " + Loan.getMember(memberName));
                     break;
